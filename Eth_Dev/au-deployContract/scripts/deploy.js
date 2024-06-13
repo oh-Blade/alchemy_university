@@ -5,7 +5,7 @@ async function main() {
 
   const url = process.env.GOERLI_URL;
 
-  let artifacts = await hre.artifacts.readArtifact("Faucet");
+  let artifacts = await hre.artifacts.readArtifact("GoofyGoober");
 
   const provider = new ethers.providers.JsonRpcProvider(url);
 
