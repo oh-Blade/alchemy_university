@@ -21,8 +21,13 @@ async function main () {
   const proxyAddress = '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512';
   const BoxV2 = await ethers.getContractFactory('BoxV2');
   console.log('Upgrading Box...');
-  await upgrades.upgradeProxy(proxyAddress, BoxV2);
-  console.log('Box upgraded');
+  const upgrade = await upgrades.upgradeProxy(proxyAddress, BoxV2);
+
+  const implementationAddress = await upgrades.erc1967.getImplementationAddress(
+    proxyAddress
+  );
+  console.log("The current contract owner is: " + upgraded.owner());
+  console.log('Implementation contract address: ' + implementationAddress);
 }
 
 main();
